@@ -37,7 +37,10 @@ test('counter increments and decrements when the buttons are clicked', () => {
   const [decrement, increment] = div.querySelectorAll('button')
   const message = div.firstChild.querySelector('div')
 
-  expect(message.textContent).toBe('Current count: 0')
+  // 1
+  // expect(message.textContent).toBe('Current count: 0')
+  // 2
+  expect(message).toHaveTextContent('Current count: 0')
 
   // 🐨 replace the next two statements with `fireEvent.click(button)`
   // 💰 note that you can remove `act` completely!
@@ -48,7 +51,10 @@ test('counter increments and decrements when the buttons are clicked', () => {
   // })
   // act(() => increment.dispatchEvent(incrementClickEvent))
   fireEvent.click(increment)
+  // 1
   // expect(message.textContent).toBe('Current count: 1')
+  // 2
+  expect(message).toHaveTextContent('Current count: 1')
   // const decrementClickEvent = new MouseEvent('click', {
   //   bubbles: true,
   //   cancelable: true,
@@ -56,5 +62,6 @@ test('counter increments and decrements when the buttons are clicked', () => {
   // })
   // act(() => decrement.dispatchEvent(decrementClickEvent))
   fireEvent.click(decrement)
-  expect(message.textContent).toBe('Current count: 0')
+  // expect(message.textContent).toBe('Current count: 0')
+  expect(message).toHaveTextContent('Current count: 0')
 })
